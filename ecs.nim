@@ -1,6 +1,6 @@
 import tables, macros
 import variant
-import private / [types, typelists, algorithms, component_collection]
+import types, typelists, algorithms, component_collection
 
 export types
 
