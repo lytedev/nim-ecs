@@ -51,7 +51,7 @@ proc removeComponent*(w: World, eid: EntityId, T: typedesc) =
 
 proc removeEntity*(w: World, eid: EntityId) =
     let e = w.entities[eid]
-    e.id = invaliEntityId
+    e.id = invalidEntityId
     e.world = nil
     for c in values(w.componentCollections):
         c.removeComponentAux(eid)
@@ -109,11 +109,11 @@ template forEveryMatchingEntity*(w: World, cb: proc) =
                         if iIndex == iCollectionLen:
                             break processingLoop
                         curEntityId = iEntityIds[iIndex]
-                        if curEntityId == invaliEntityId:
+                        if curEntityId == invalidEntityId:
                             continue
                     else:
                         while iIndex < iCollectionLen and
-                                (iEntityIds[iIndex] < curEntityId or iEntityIds[iIndex] == invaliEntityId):
+                                (iEntityIds[iIndex] < curEntityId or iEntityIds[iIndex] == invalidEntityId):
                             inc iIndex
 
                         if iIndex == iCollectionLen:

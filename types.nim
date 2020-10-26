@@ -1,4 +1,4 @@
 type
     EntityId* = int32
 
-const invaliEntityId* = EntityId(-1)
+const invalidEntityId* = EntityId(-1)
